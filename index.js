@@ -23,9 +23,7 @@ function canCastSpell(isSpellPrepared, hasScroll) {
  * @returns {boolean} whether the creature is hidden from the observer
  */
 function isHidden(hiding, aware) {
-  if (hiding) {
-    return true;
-  } else if (!aware) {
+  if (hiding || !aware) {
     return true;
   } else {
     return false;
@@ -40,7 +38,11 @@ function isHidden(hiding, aware) {
  * @returns {boolean} whether the strike hits
  */
 function doesStrikeHit(attack, ac) {
-  // TODO
+  if (attack >= ac) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
