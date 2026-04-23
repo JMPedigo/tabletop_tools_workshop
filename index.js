@@ -143,7 +143,14 @@ function getCoverBonus(behindObstacle, takingCover) {
  * @returns {number} the creature's remaining HP after taking damage
  */
 function getRemainingHp(maxHp, currentHp, damage) {
-  // TODO
+  const hp = currentHp - damage;
+  if (damage >= maxHp * 2) {
+    return "You have died.";
+  } else if (hp <= 0) {
+    return 0;
+  } else {
+    return hp;
+  }
 }
 
 /**
